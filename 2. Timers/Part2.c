@@ -26,19 +26,27 @@ void main(){
     __bis_SR_register(LPM3_bits | GIE);
 
 }
-
+char REDLED = 0x01;
 
 void gpioInit(){
-    // @TODO Initialize the Red or Green LED
+  // @TODO Initialize the Red or Green LED
+    P1OUT &= ~BIT0;                               // Clear P1.0 output latch for a defined power-on state
+    P1DIR |= BIT0;                          // Set P1.0 to output direction
 
-    // @TODO Initialize Button 2.3
+
+
+  // @TODO Initialize Button 2.3
+    P2OUT |= BIT3;                          // Configure P2.3 as pulled-up
+    P2REN |= BIT3;                          // P2.3 pull-up register enable
+    P2IES &= ~BIT3;                         // P2.3 Low --> High edge
+    P2IE |= BIT3;                           // P2.3 interrupt enabled
 
 
 }
 
 void timerInit(){
     // @TODO Initialize Timer B1 in Continuous Mode using ACLK as the source CLK with Interrupts turned on
-
+    TB1CTL = TBSSEL_1 | MC_2;
 }
 
 
