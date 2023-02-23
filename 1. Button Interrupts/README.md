@@ -70,3 +70,6 @@ You will take the shell code given to you in this part and need to add code wher
 
 TODO statements will be in comments, but also should show up as a little checklist or clipboard on the left side of your editor.
 ![ToDo in CCS](https://i.gyazo.com/ed9b4529623b98bdb5b603f0a4e0c28b.png)
+
+## Report
+For this code, interrupts are used to determine which LED is blinking and it is based on button P2.3. The int main clears P2.3 (the button). Also contains a while loop that blinks the leds. gpioInit initializes everything, LEDs, buttons, etc. P2.3 is initialized as a low to high edge. The port 2 vector interrupt checks the status of the button. if the button is pressed, the program recognizes a falling edge, and clears the green LED, thus making the red led blink. The second if statment checks if the button is not pressed and does the opposite (Green LED blinking, red LED stops.)
