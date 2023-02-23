@@ -78,7 +78,7 @@ void gpioInit(){
 #pragma vector=PORT2_VECTOR
 __interrupt void Port_2(void)
 {
-    P2IFG &= ~BIT3;                         // Clear P1.3 IFG
+    P2IFG &= ~BIT3;                         // Clear P2.3 IFG
 
     if (P2IES & BIT3 )       //Checks if button P2.3 is pressed
     {
